@@ -97,24 +97,70 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+<div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+
+    <div class="pt-2 pb-3 space-y-1">
+        <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            {{ __('Dashboard') }}
+        </x-responsive-nav-link>
+
+        <!-- 🔹 CLIENTES -->
+        <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.*')">
+            {{ __('Clientes') }}
+        </x-responsive-nav-link>
+
+        <!-- 🔹 CITAS MÉDICAS -->
+        <x-responsive-nav-link :href="route('citas.index')" :active="request()->routeIs('citas.*')">
+            {{ __('Citas Médicas') }}
+        </x-responsive-nav-link>
+
+        <!-- 🔹 MASCOTAS -->
+        <x-responsive-nav-link :href="route('mascotas.index')" :active="request()->routeIs('mascotas.*')">
+            {{ __('Registro de Mascotas') }}
+        </x-responsive-nav-link>
+
+        <!-- 🔹 VENTAS -->
+        <x-responsive-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.*')">
+            {{ __('Ventas') }}
+        </x-responsive-nav-link>
+
+        <!-- 🔸 SOLO ADMIN -->
+        @if(Auth::user() && Auth::user()->rol === 'admin')
+
+            <x-responsive-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.*')">
+                {{ __('Usuarios') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('compras.index')" :active="request()->routeIs('compras.*')">
+                {{ __('Compras') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('productos.index')" :active="request()->routeIs('productos.*')">
+                {{ __('Productos') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('proveedors.index')" :active="request()->routeIs('proveedors.*')">
+                {{ __('Proveedores') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('reportes.index')" :active="request()->routeIs('reportes.*')">
+                📊 {{ __('Reportes') }}
+            </x-responsive-nav-link>
+
+        @endif
+    </div>
+
+    <!-- Responsive Settings Options -->
+    <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
+        <div class="px-4">
+            <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
+            <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
         </div>
 
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Perfil') }}
-                </x-responsive-nav-link>
+        <div class="mt-3 space-y-1">
+            <x-responsive-nav-link :href="route('profile.edit')">
+                {{ __('Perfil') }}
+            </x-responsive-nav-link>
 
                 <!-- Cerrar Sesión -->
                 <form method="POST" action="{{ route('logout') }}" id="logout-form-responsive">
