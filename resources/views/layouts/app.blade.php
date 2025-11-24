@@ -9,24 +9,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 <body class="bg-light text-dark">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container-fluid">
+
         <!-- Logo / título -->
         <a class="navbar-brand fw-bold text-white" href="{{ route('dashboard') }}">
             Veterinaria J&C
         </a>
 
+        <!-- 🔹 BOTÓN MÓVIL (Hamburguesa) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
         <!-- Menú principal -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
 
-                {{--  ADMINISTRADOR: acceso total --}}
+                {{--  ADMINISTRADOR --}}
                 @if(Auth::user()->rol === 'admin')
-                    <li><a class="nav-link {{ request()->is('usuarios*') ? 'active' : '' }}" href="{{ route('usuarios.index') }}">Usuarios</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('usuarios*') ? 'active' : '' }}" href="{{ route('usuarios.index') }}">
+                            Usuarios
+                        </a>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('clientes*') ? 'active' : '' }}" href="{{ route('clientes.index') }}">
@@ -59,31 +69,38 @@
                     </li>
 
                     <li class="nav-item">
-                    <a class="nav-link" href="{{ route('citas.index') }}"> Citas Médicas</a>
+                        <a class="nav-link {{ request()->is('citas*') ? 'active' : '' }}" href="{{ route('citas.index') }}">
+                            Citas Médicas
+                        </a>
                     </li>
-                        
 
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('mascotas*') ? 'active' : '' }}" href="{{ route('mascotas.index') }}">
                             Mascotas
                         </a>
                     </li>
-                    <<li><a href="{{ route('reportes.index') }}" class="nav-link"> Reportes</a></li>
 
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('reportes*') ? 'active' : '' }}" href="{{ route('reportes.index') }}">
+                            📊 Reportes
+                        </a>
+                    </li>
 
-
-                {{--  EMPLEADO: solo módulos permitidos --}}
+                {{-- EMPLEADO --}}
                 @elseif(Auth::user()->rol === 'empleado')
+
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('clientes*') ? 'active' : '' }}" href="{{ route('clientes.index') }}">
                             Clientes
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('productos*') ? 'active' : '' }}" href="{{ route('productos.index') }}">
                             Productos
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('ventas*') ? 'active' : '' }}" href="{{ route('ventas.index') }}">
                             Ventas
@@ -101,6 +118,7 @@
                             Mascotas
                         </a>
                     </li>
+
                 @endif
             </ul>
 
@@ -113,7 +131,8 @@
                     </form>
                 </li>
             </ul>
-        </div>
+
+        </div> <!-- FIN collapse -->
     </div>
 </nav>
 
