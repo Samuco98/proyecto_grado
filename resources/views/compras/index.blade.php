@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container mt-4">
-        <h3 class="mb-4">📦 Compras Registradas</h3>
+        <h3 class="fw-bold text-dark"> Compras Registradas</h3>
 
         <div class="card shadow-sm">
             <div class="card-body">

@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3>Lista de Productos</h3>
+            <h3 class="fw-bold text-dark">Lista de Productos</h3>
           
         </div>
 

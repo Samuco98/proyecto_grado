@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3 class="mb-0">📅 Citas Médicas</h3>
+            <h3 class="fw-bold text-dark">Citas Médicas</h3>
             <button class="btn btn-dark" id="btnNuevaCita" data-bs-toggle="modal" data-bs-target="#modalCita">+ Nueva Cita</button>
         </div>
 

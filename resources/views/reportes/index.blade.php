@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container mt-4">
-        <h2 class="text-center fw-bold mb-4">📊 Reportes Generales</h2>
+        <h3 class="fw-bold text-dark"> Reportes Generales</h3>
 
         <div class="card p-4 shadow-sm">
             <form action="{{ route('reportes.generar') }}" method="POST">

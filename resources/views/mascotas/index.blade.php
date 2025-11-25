@@ -2,7 +2,7 @@
     <div class="container mt-4">
 
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3 class="fw-bold text-primary">🐶 Registro de Mascotas</h3>
+            <h3 class="fw-bold text-dark"> Registro de Mascotas</h3>
             <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalMascota">
                 + Registrar Mascota
             </button>

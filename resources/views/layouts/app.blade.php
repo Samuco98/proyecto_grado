@@ -73,6 +73,11 @@
                             Citas Médicas
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('consultas.index') }}">
+                            Consultas Veterinarias
+                        </a>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('mascotas*') ? 'active' : '' }}" href="{{ route('mascotas.index') }}">

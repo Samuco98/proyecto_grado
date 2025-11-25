@@ -3,18 +3,18 @@
         <h2 class="fw-bold text-center">{{ $titulo }}</h2>
 
         <div class="card mt-4 p-4 shadow-sm">
-            <h5 class="fw-bold">📅 Período: {{ request('desde') ?? '—' }} - {{ request('hasta') ?? '—' }}</h5>
-            <h5 class="fw-bold text-success">💰 Total: Bs {{ number_format($total, 2) }}</h5>
+            <h5 class="fw-bold"> Período: {{ request('desde') ?? '—' }} - {{ request('hasta') ?? '—' }}</h5>
+            <h5 class="fw-bold text-success"> Total: Bs {{ number_format($total, 2) }}</h5>
 
             @if($tipo === 'ventas')
                 <h6 class="text-primary mt-3">
-                    🏆 Producto más vendido: 
+                     Producto más vendido: 
                     {{ $masVendido?->producto?->nombre ?? 'N/A' }} 
                     ({{ $masVendido?->total_vendidos ?? 0 }} unidades)
                 </h6>
             @else
                 <h6 class="text-primary mt-3">
-                    📦 Producto más comprado: 
+                     Producto más comprado: 
                     {{ $masComprado?->producto?->nombre ?? 'N/A' }} 
                     ({{ $masComprado?->total_comprados ?? 0 }} unidades)
                 </h6>

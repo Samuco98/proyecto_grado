@@ -11,6 +11,7 @@ use App\Http\Controllers\CitaController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ConsultaController;
 
     use App\Models\Cliente;
 
@@ -31,7 +32,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('mascotas', MascotaController::class);
     Route::resource('vacunas', VacunaController::class);
     Route::resource('usuarios', UsuarioController::class);
- 
+    Route::resource('consultas', ConsultaController::class);
+ Route::get('/mascotas-por-cliente/{id}', function($id){
+    return \App\Models\Mascota::where('cliente_id', $id)->get();
+});
 
     Route::get('/api/clientes/{id}/mascotas', function($id) {
     $cliente = Cliente::with('mascotas')->find($id);
@@ -73,6 +77,9 @@ Route::middleware(['auth', 'role:empleado'])->group(function () {
     Route::resource('ventas', VentaController::class);
     Route::resource('mascotas', MascotaController::class);
     Route::resource('vacunas', VacunaController::class);
+    Route::resource('consultas', ConsultaController::class);Route::get('/mascotas-por-cliente/{id}', function($id){
+    return \App\Models\Mascota::where('cliente_id', $id)->get();
+});
     
 
     // Citas médicas
