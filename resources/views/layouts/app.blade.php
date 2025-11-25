@@ -87,7 +87,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('reportes*') ? 'active' : '' }}" href="{{ route('reportes.index') }}">
-                            📊 Reportes
+                             Reportes
                         </a>
                     </li>
 
