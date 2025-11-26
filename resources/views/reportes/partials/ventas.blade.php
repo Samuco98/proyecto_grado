@@ -1,5 +1,5 @@
 <div class="card p-3 mt-3">
-    <h4>📦 Reporte de Ventas</h4>
+    <h4> Reporte de Ventas</h4>
     <p><strong>Total generado:</strong> Bs {{ number_format($total, 2) }}</p>
 
     @if($productoMasVendido)

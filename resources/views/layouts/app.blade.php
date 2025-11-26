@@ -70,12 +70,12 @@
 
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('citas*') ? 'active' : '' }}" href="{{ route('citas.index') }}">
-                            Citas Médicas
+                            Citas 
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('consultas.index') }}">
-                            Consultas Veterinarias
+                            Consultas 
                         </a>
                     </li>
 
@@ -114,7 +114,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('citas*') ? 'active' : '' }}" href="{{ route('citas.index') }}">
-                            Citas Médicas
+                            Citas
                         </a>
                     </li>
 
